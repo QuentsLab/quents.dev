@@ -141,22 +141,27 @@
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
   import {
     getDatabase, ref, onValue, onDisconnect, set, runTransaction, push, serverTimestamp
   } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
 
-  /* ====================================================================
-     REPLACE WITH YOUR OWN FIREBASE CONFIG
-     Firebase Console → Project settings → General → Your apps → SDK setup
-  ==================================================================== */
+  /* ==================================================================
+     Quents — Firebase project config (quents-92e74)
+  ================================================================== */
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT",
+    apiKey: "AIzaSyBaQftlA_XBKId64HzzmK1XPr-qVpDLekg",
+    authDomain: "quents-92e74.firebaseapp.com",
+    databaseURL: "https://quents-92e74-default-rtdb.firebaseio.com",
+    projectId: "quents-92e74",
+    storageBucket: "quents-92e74.firebasestorage.app",
+    messagingSenderId: "226670986894",
+    appId: "1:226670986894:web:fcf9e87061fddd9612ebdf",
+    measurementId: "G-DE75P14020"
   };
 
   const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
   const db = getDatabase(app);
 
   /* ---------- Total visitor counter (increments once per page load) ---------- */
