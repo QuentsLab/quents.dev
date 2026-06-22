@@ -4007,45 +4007,4 @@
                               .cls-1 {
                                 fill: var(--iconColor, #1d63ed);
 
-                                    /* ===== HERO ===== */
-.hero-wrap{
-  max-width:1280px;margin:0 auto;
-  padding:82px 48px 64px;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:56px;align-items:center;
-}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--blue-light);color:var(--blue);
-  font-size:.78rem;font-weight:700;letter-spacing:.05em;
-  text-transform:uppercase;padding:5px 13px;border-radius:20px;
-  margin-bottom:22px;
-}
-.hero-eyebrow span{
-  width:6px;height:6px;background:var(--blue);
-  border-radius:50%;animation:pulse 2s infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-
-h1{
-  font-size:clamp(2.4rem,4.2vw,3.6rem);
-  font-weight:800;line-height:1.08;
-  letter-spacing:-.03em;color:var(--text);
-}
-.hero-blue{color:var(--blue);}
-
-.hero-sub{
-  margin-top:18px;font-size:1.05rem;
-  color:var(--body);max-width:460px;line-height:1.72;
-}
-.hero-ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;}
-.badges{display:flex;gap:24px;margin-top:40px;flex-wrap:wrap;}
-.badge{display:flex;align-items:center;gap:10px;}
-.badge-ico{
-  width:34px;height:34px;border-radius:9px;
-  background:var(--blue-light);display:flex;align-items:center;
-  justify-content:center;flex-shrink:0;color:var(--blue);
-}
-.badge-t{font-size:.84rem;font-weight:600;color:var(--text);}
-.badge-s{font-size:.75rem;color:var(--muted);}
-}
+                              }
