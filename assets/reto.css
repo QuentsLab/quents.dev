@@ -1,11 +1,4 @@
-/* ===== RESET ===== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:#fff;color:#0A1628;line-height:1.6;}
-a{text-decoration:none;color:inherit;}
-ul{list-style:none;}
 
-/* ===== VARIABLES ===== */
 :root{
   --blue:#1D63ED;
   --blue-deep:#1149C4;
