@@ -1,0 +1,1 @@
+(()=>{const e=e=>{window.innerWidth<980&&(e.preventDefault(),e.currentTarget.parentElement.classList.toggle("mega-menu-active"))};document.querySelectorAll(".quents-block-quents-megan .quents-block-navigation-item__content").forEach(t=>{t.addEventListener("click",e)})})();
