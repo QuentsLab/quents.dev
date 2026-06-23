@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RootFS Repository</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: #0b1220;
+      color: #e5e7eb;
+    }
+
+
+header {
+  padding: 20px;
+  background: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #38bdf8;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.card a {
+  color: #a5b4fc;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #1f2937;
+  color: #9ca3af;
+}
+
+.checksum {
+  color: #fbbf24;
+}
+
+.zsync {
+  color: #34d399;
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📦 RootFS Image Repository</h1>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+
+<!-- AMD64 -->
+<div class="card">
+  <a href="rootfs-amd64.tar.gz">rootfs-amd64.tar.gz</a><br>
+  <span class="tag">amd64</span>
+  <div class="zsync"><a href="rootfs-amd64.tar.gz.zsync">zsync</a></div>
+</div>
+
+<!-- ARM64 -->
+<div class="card">
+  <a href="rootfs-arm64.tar.gz">rootfs-arm64.tar.gz</a><br>
+  <span class="tag">arm64</span>
+  <div class="zsync"><a href="rootfs-arm64.tar.gz.zsync">zsync</a></div>
+</div>
+
+<!-- ARMHF -->
+<div class="card">
+  <a href="rootfs-armhf.tar.gz">rootfs-armhf.tar.gz</a><br>
+  <span class="tag">armhf</span>
+  <div class="zsync"><a href="rootfs-armhf.tar.gz.zsync">zsync</a></div>
+</div>
+
+<!-- PPC64EL -->
+<div class="card">
+  <a href="rootfs-ppc64el.tar.gz">rootfs-ppc64el.tar.gz</a><br>
+  <span class="tag">ppc64el</span>
+  <div class="zsync"><a href="rootfs-ppc64el.tar.gz.zsync">zsync</a></div>
+</div>
+
+<!-- RISCV64 -->
+<div class="card">
+  <a href="rootfs-riscv64.tar.gz">rootfs-riscv64.tar.gz</a><br>
+  <span class="tag">riscv64</span>
+  <div class="zsync"><a href="rootfs-riscv64.tar.gz.zsync">zsync</a></div>
+</div>
+
+<!-- S390X -->
+<div class="card">
+  <a href="rootfs-s390x.tar.gz">rootfs-s390x.tar.gz</a><br>
+  <span class="tag">s390x</span>
+  <div class="zsync"><a href="rootfs-s390x.tar.gz.zsync">zsync</a></div>
+</div>
+
+<!-- Checksums -->
+<div class="card">
+  <a class="checksum" href="SHA256SUMS">SHA256SUMS</a><br>
+  <span class="tag">checksum</span>
+</div>
+
+<div class="card">
+  <a class="checksum" href="SHA256SUMS.gpg">SHA256SUMS.gpg</a><br>
+  <span class="tag">signature</span>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
