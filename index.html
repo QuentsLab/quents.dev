@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Quents — Full Linux environments, Ship With Connfidence</title>
 <meta name="description" content="Quents lets you pull, run, and manage full Linux environments — from Ubuntu to Kali — with one command. Self-hosted, under your control." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%230E1116'/><circle cx='16' cy='16' r='7' fill='%23E8954A'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quents.dev/">
+<meta property="og:title" content="Quents — Full Linux environments, one command away">
+<meta property="og:description" content="Pull, run, and manage real Linux distros — Ubuntu, Debian, Kali, and more — self-hosted on your own hardware. No cloud lock-in.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quents — Full Linux environments, one command away">
+<meta name="twitter:description" content="Pull, run, and manage real Linux distros — self-hosted on your own hardware. No cloud lock-in.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -101,6 +109,47 @@
   .msg { margin-top:14px; font-size:14px; font-family:var(--mono); color: var(--live); min-height:1.2em; }
   .msg.error { color:var(--error); }
 
+  .launch-label {
+    font-family: var(--mono); font-size:11px; letter-spacing:0.14em;
+    color: var(--text-muted); text-transform:uppercase; margin-bottom:14px;
+  }
+  .launch-label span { color: var(--accent); }
+
+  .countdown { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px; }
+  .cd-unit {
+    background: var(--surface); border:1px solid var(--border);
+    border-radius:6px; padding:14px 20px; text-align:center; min-width:72px;
+  }
+  .cd-num {
+    font-family: var(--mono); font-size:28px; font-weight:700;
+    color: var(--text); line-height:1; display:block;
+    font-variant-numeric: tabular-nums;
+  }
+  .cd-lbl {
+    font-family: var(--mono); font-size:10px; letter-spacing:0.12em;
+    color: var(--text-muted); text-transform:uppercase; margin-top:6px; display:block;
+  }
+  .cd-sep {
+    font-family: var(--mono); font-size:22px; color: var(--border);
+    align-self:center; padding-bottom:18px; user-select:none;
+  }
+
+  .registry {
+    display:flex; flex-direction:column; gap:10px; margin-bottom:42px;
+    font-family:var(--mono); font-size:13px;
+  }
+  .registry-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .registry-tag {
+    font-size:10px; font-weight:700; letter-spacing:0.08em; flex-shrink:0;
+    padding:4px 0; border-radius:4px; width:42px; text-align:center;
+  }
+  .registry-tag.free { background: rgba(74,222,128,0.12); color: var(--live); }
+  .registry-tag.pro  { background: rgba(232,149,74,0.14); color: var(--accent); }
+  .registry-chip {
+    border:1px solid var(--border); background:var(--surface); color:var(--text-muted);
+    padding:4px 11px; border-radius:5px;
+  }
+
   footer { margin-top:72px; color: var(--text-muted); font-size:13px; font-family:var(--mono); }
   footer a { color: var(--text-muted); text-decoration:none; border-bottom:1px solid var(--border); }
   footer a:hover { color:var(--accent); border-color:var(--accent); }
@@ -123,6 +172,33 @@
 
     <h1 class="tagline">Full Linux environments, one command away.</h1>
     <p class="sub">Pull, run, and manage real Linux distros — Ubuntu, Debian, Kali, and more — self-hosted on your own hardware. No cloud lock-in, no shared infrastructure.</p>
+
+    <p class="launch-label">Launching <span>July 24, 2026</span></p>
+    <div class="countdown">
+      <div class="cd-unit"><span class="cd-num" id="cdDays">--</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><span class="cd-num" id="cdHours">--</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><span class="cd-num" id="cdMins">--</span><span class="cd-lbl">Min</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><span class="cd-num" id="cdSecs">--</span><span class="cd-lbl">Sec</span></div>
+    </div>
+
+    <div class="registry">
+      <div class="registry-row">
+        <span class="registry-tag free">FREE</span>
+        <span class="registry-chip">ubuntu</span>
+        <span class="registry-chip">debian</span>
+        <span class="registry-chip">alpine</span>
+      </div>
+      <div class="registry-row">
+        <span class="registry-tag pro">PRO</span>
+        <span class="registry-chip">kali</span>
+        <span class="registry-chip">blackarch</span>
+        <span class="registry-chip">parrot</span>
+        <span class="registry-chip">backbox</span>
+      </div>
+    </div>
 
     <div class="stats">
       <div class="stat">TOTAL_VISITORS: <b id="totalVisitors">—</b></div>
@@ -184,6 +260,29 @@
     const val = snap.val();
     document.getElementById("onlineNow").textContent = val ? Object.keys(val).length : 0;
   });
+
+  /* ---------- Countdown to launch (July 24, 2026, IST) ---------- */
+  const LAUNCH_AT = new Date('2026-07-24T00:00:00+05:30').getTime();
+  const pad2 = (n) => String(n).padStart(2, '0');
+  function tickCountdown() {
+    const diff = LAUNCH_AT - Date.now();
+    const els = {
+      d: document.getElementById('cdDays'),
+      h: document.getElementById('cdHours'),
+      m: document.getElementById('cdMins'),
+      s: document.getElementById('cdSecs'),
+    };
+    if (diff <= 0) {
+      els.d.textContent = els.h.textContent = els.m.textContent = els.s.textContent = '00';
+      return;
+    }
+    els.d.textContent = pad2(Math.floor(diff / 86400000));
+    els.h.textContent = pad2(Math.floor((diff % 86400000) / 3600000));
+    els.m.textContent = pad2(Math.floor((diff % 3600000) / 60000));
+    els.s.textContent = pad2(Math.floor((diff % 60000) / 1000));
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
 
   /* ---------- Typewriter hero ---------- */
   const commands = ["quents pull kali", "quents run pentest-lab", "quents gui pentest-lab"];
