@@ -184,21 +184,7 @@
       <div class="cd-unit"><span class="cd-num" id="cdSecs">--</span><span class="cd-lbl">Sec</span></div>
     </div>
 
-    <div class="registry">
-      <div class="registry-row">
-        <span class="registry-tag free">FREE</span>
-        <span class="registry-chip">ubuntu</span>
-        <span class="registry-chip">debian</span>
-        <span class="registry-chip">alpine</span>
-      </div>
-      <div class="registry-row">
-        <span class="registry-tag pro">PRO</span>
-        <span class="registry-chip">kali</span>
-        <span class="registry-chip">blackarch</span>
-        <span class="registry-chip">parrot</span>
-        <span class="registry-chip">backbox</span>
-      </div>
-    </div>
+
 
     <div class="stats">
       <div class="stat">TOTAL_VISITORS: <b id="totalVisitors">—</b></div>
@@ -285,7 +271,33 @@
   setInterval(tickCountdown, 1000);
 
   /* ---------- Typewriter hero ---------- */
-  const commands = ["quents pull kali", "quents run pentest-lab", "quents gui pentest-lab"];
+  const commands = [
+    "quents search kali",
+    "quents list --online",
+    "quents images",
+    "quents pull kali",
+    "quents pull ubuntu-arm64",
+    "quents rmi alpine",
+    "quents run pentest-lab",
+    "quents create debian --name labs",
+    "quents start labs",
+    "quents stop labs",
+    "quents ps -a",
+    "quents exec labs -- apt update",
+    "quents shell labs",
+    "quents rename labs redteam",
+    "quents inspect redteam",
+    "quents rm redteam",
+    "quents gui pentest-lab",
+    "quents login",
+    "quents activate QNT-7F3K-9X2P",
+    "quents logout",
+    "sudo quents portable --activate",
+    "quents portable --status",
+    "sudo quents portable --deactivate",
+    "quents version",
+    "quents help"
+  ];
   const typedEl = document.getElementById("typed");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
